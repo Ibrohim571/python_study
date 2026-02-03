@@ -24,5 +24,6 @@ df = pd.DataFrame({
     'max_temp': daily_data['temperature_2m_max'],
     'min_temp': daily_data['temperature_2m_min']
 })
+df['date'] = pd.to_datetime(df['date'])
 
 print(df)
