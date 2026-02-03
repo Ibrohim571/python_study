@@ -2,6 +2,7 @@ import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
+import os
 
 # Calculate dates
 today = datetime.now()
@@ -41,9 +42,12 @@ plt.title('Paris Weather - Past 7 Days')
 plt.legend()
 
 # Rotate x-axis labels for readability
-plt.xticks(rotation=45)
+plt.xticks(rotation=0)
 plt.tight_layout()
 
 # Save the plot
 plt.savefig('weather_chart.png')
 plt.show()
+
+if not os.path.exists('data'):
+    os.makedirs('data')
