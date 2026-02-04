@@ -51,3 +51,8 @@ plt.show()
 
 if not os.path.exists('data'):
     os.makedirs('data')
+
+plt.savefig('data/weather_chart.png')
+df.to_csv('data/paris_weather.csv', index=False)
+
+print("Files saved in 'data' folder")
