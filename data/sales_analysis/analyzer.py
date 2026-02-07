@@ -1,3 +1,4 @@
+import pandas as pd
 import os
 
 # Check if we're in the right place
@@ -10,3 +11,7 @@ if os.path.exists(data_path):
 else:
     print(f"❌ Cannot find {data_path}")
     print("Make sure you're running from the sales-analysis folder!")
+
+df = pd.read_csv(data_path)
+print("CSV Data:")
+print(df)
