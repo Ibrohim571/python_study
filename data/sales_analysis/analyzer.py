@@ -14,8 +14,11 @@ else:
 
 df = pd.read_csv(data_path)
 print("CSV Data:")
+
+# print(df)
+# print(df.shape)
+# print(f"\nShape: {df.shape[0]} rows, {df.shape[1]} columns")
+
+df['total'] = df['quantity'] * df['price']
+print("\nWith totals:")
 print(df)
-
-print(df.shape)
-
-print(f"\nShape: {df.shape[0]} rows, {df.shape[1]} columns")
