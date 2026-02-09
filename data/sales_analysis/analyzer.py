@@ -22,3 +22,7 @@ print("CSV Data:")
 df['total'] = df['quantity'] * df['price']
 print("\nWith totals:")
 print(df)
+
+os.makedirs('output', exist_ok=False)
+
+df.to_json('output/sales_data.json', orient='records')
