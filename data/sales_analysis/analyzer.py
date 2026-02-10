@@ -25,6 +25,8 @@ print(df)
 
 os.makedirs('output', exist_ok=True)
 
-df.to_json('output/sales_data.json', orient='records')
+df.to_json('output/sales_data.json', orient='records', indent=2)
 
 df.to_excel('output/sales_data.xlsx', index=False)
+
+df.to_csv('output/sales_with_totals.csv', index=True)
