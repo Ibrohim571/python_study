@@ -23,6 +23,8 @@ df['total'] = df['quantity'] * df['price']
 print("\nWith totals:")
 print(df)
 
-os.makedirs('output', exist_ok=False)
+os.makedirs('output', exist_ok=True)
 
 df.to_json('output/sales_data.json', orient='records')
+
+df.to_excel('output/sales_data.xlsx', index=False)
