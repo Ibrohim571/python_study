@@ -13,6 +13,9 @@ text = pd.DataFrame(["Hello programmer"])
 
 text.to_csv("./output/example.txt", index=False)
 
+result = pd.read_csv('./output/example.txt')
+print(result)
+
 # with open('./output/sales_data.xlsx', 'r') as f:
 #     data = excel.load(f)
 #     print(data)
