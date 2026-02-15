@@ -1,5 +1,5 @@
 def calculate_total(quantity, price):
-    return quattity * price
+    return quantity * price
 
 def format_currency(amount):
     return f"${amount:,.2f}"
