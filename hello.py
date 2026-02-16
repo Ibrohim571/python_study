@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 import requests
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -28,7 +29,6 @@ df = pd.DataFrame({
 })
 df['date'] = pd.to_datetime(df['date'])
 
-import matplotlib.pyplot as plt
 
 # Create the plot
 plt.figure(figsize=(10, 6))
