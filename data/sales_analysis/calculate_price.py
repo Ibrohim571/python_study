@@ -11,7 +11,7 @@ example = pd.DataFrame({
     "status": ["student", "teacher"]
 })
 
-for index, row in example.itertuples():
+for index, row in example.iterrows():
     print(row)
 
 for index, row in df.iterrows():
