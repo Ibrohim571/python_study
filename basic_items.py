@@ -25,3 +25,8 @@ class RestApi:
         self.max_tokens = max_tokens
 
 dev_config = RestApi("sk-dev-key", max_tokens=50)
+
+prod_config = RestApi(api_key="sk-prod-key", model="gpt-4", max_tokens=1000)
+
+print(dev_config.model)
+print(prod_config.max_tokens)
