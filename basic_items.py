@@ -23,3 +23,5 @@ class RestApi:
         self.api_key = api_key
         self.model = model
         self.max_tokens = max_tokens
+
+dev_config = RestApi("sk-dev-key", max_tokens=50)
