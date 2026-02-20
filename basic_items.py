@@ -1,32 +1,26 @@
-class Dog:
-    def __init__(self, name, brand):
-        self.name = name
-        self.brand = brand
+class Validator:
+    def __init__(self):
+        self.errors = []
 
-class Cat:
-    def __init__(self, name, address, color):
-        self.name = name
-        self.address = address
-        self.color = color
+    def email_validator(self, email):
+        if "@" not in email:
+            self.errors.append(f"This ${email} Email is not correct")
+            return False
+        return True
+    
+    def age_validator(self, age):
+        if age <= 18 or age >= 50:
+            self.errors.append(f"This ${age} is not suitable for this website")
+            return False
+        return True
+    
 
 
-dog = Dog("Tuzik", "Bulldog")
+validator = Validator()
+validator.email_validator("ijorayevgmail.com")
+validator.age_validator(60)
 
-print(dog.name)
+validator.email_validator("ibrohimjuraev@gmail.com")
+validator.age_validator(24)
 
-cat1 = Cat("name", "beshkent", "grey")
-
-print(cat1.address)
-
-class RestApi:
-    def __init__(self, api_key, model="gpt-3.5-turbo", max_tokens=100):
-        self.api_key = api_key
-        self.model = model
-        self.max_tokens = max_tokens
-
-dev_config = RestApi("sk-dev-key", max_tokens=50)
-
-prod_config = RestApi(api_key="sk-prod-key", model="gpt-4", max_tokens=1000)
-
-print(dev_config.model)
-print(prod_config.max_tokens)
+print(validator.errors)
