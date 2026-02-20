@@ -13,14 +13,20 @@ class Validator:
             self.errors.append(f"This ${age} is not suitable for this website")
             return False
         return True
+
+class NameValidator(Validator):
+        def say_hello(self):
+            print("Hi there")
+    
+
     
 
 
-validator = Validator()
+validator = NameValidator()
 validator.email_validator("ijorayevgmail.com")
 validator.age_validator(60)
+validator.say_hello()
 
-validator.email_validator("ibrohimjuraev@gmail.com")
-validator.age_validator(24)
+
 
 print(validator.errors)
