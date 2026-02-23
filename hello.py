@@ -19,26 +19,28 @@ url = f"https://api.open-meteo.com/v1/forecast?latitude=48.85&longitude=2.35&sta
 response = requests.get(url)
 data = response.json()
 
-daily_data = data['daily']
+daily_data = data["daily"]
 
 # Create a DataFrame
-df = pd.DataFrame({
-    'date': daily_data['time'],
-    'max_temp': daily_data['temperature_2m_max'],
-    'min_temp': daily_data['temperature_2m_min']
-})
-df['date'] = pd.to_datetime(df['date'])
+df = pd.DataFrame(
+    {
+        "date": daily_data["time"],
+        "max_temp": daily_data["temperature_2m_max"],
+        "min_temp": daily_data["temperature_2m_min"],
+    }
+)
+df["date"] = pd.to_datetime(df["date"])
 
 
 # Create the plot
 plt.figure(figsize=(10, 6))
-plt.plot(df['date'], df['max_temp'], marker='o', label='Max Temp')
-plt.plot(df['date'], df['min_temp'], marker='o', label='Min Temp')
+plt.plot(df["date"], df["max_temp"], marker="o", label="Max Temp")
+plt.plot(df["date"], df["min_temp"], marker="o", label="Min Temp")
 
 # Add labels and title
-plt.xlabel('Date')
-plt.ylabel('Temperature (°C)')
-plt.title('Paris Weather - Past 7 Days')
+plt.xlabel("Date")
+plt.ylabel("Temperature (°C)")
+plt.title("Paris Weather - Past 7 Days")
 plt.legend()
 
 # Rotate x-axis labels for readability
@@ -46,13 +48,13 @@ plt.xticks(rotation=0)
 plt.tight_layout()
 
 # Save the plot
-plt.savefig('weather_chart.png')
+plt.savefig("weather_chart.png")
 plt.show()
 
-if not os.path.exists('data'):
-    os.makedirs('data')
+if not os.path.exists("data"):
+    os.makedirs("data")
 
-plt.savefig('data/weather_chart.png')
-df.to_csv('data/paris_weather.csv', index=False)
+plt.savefig("data/weather_chart.png")
+df.to_csv("data/paris_weather.csv", index=False)
 
 print("Files saved in 'data' folder")
